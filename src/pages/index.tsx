@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useChat } from 'ai/react'
 import { AiOutlineArrowUp } from "react-icons/ai";
 import Head from "next/head";
+import { Analytics } from '@vercel/analytics/react';
 
 
 function chunkString(str: string): string[] {
@@ -46,6 +47,8 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta name="google-site-verification" content="sG4QDkC8g2oxKSopgJdIe2hQ_SaJDaEaBjwCXZNkNWA" />
       </Head>
+      <Analytics />
+
       <div className="bg-zinc-900 h-[100svh] w-screen flex items-center justify-center font-sans">
         <div
           className="max-w-screen-md flex-1 flex flex-col h-[100svh] items-center p-5 sm:p-7 gap-5 sm:gap-7 overflow-hidden">

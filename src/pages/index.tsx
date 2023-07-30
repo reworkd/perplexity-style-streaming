@@ -46,9 +46,9 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta name="google-site-verification" content="sG4QDkC8g2oxKSopgJdIe2hQ_SaJDaEaBjwCXZNkNWA" />
       </Head>
-      <div className="bg-zinc-900 h-screen w-screen flex items-center justify-center font-sans">
+      <div className="bg-zinc-900 h-[100svh] w-screen flex items-center justify-center font-sans">
         <div
-          className="max-w-screen-md flex-1 flex flex-col h-full items-center p-5 sm:p-7 gap-5 sm:gap-7 overflow-hidden">
+          className="max-w-screen-md flex-1 flex flex-col h-[100svh] items-center p-5 sm:p-7 gap-5 sm:gap-7 overflow-hidden">
           <div className="flex-1 w-full overflow-auto">
             {
               // If loading, do not show the last message statically

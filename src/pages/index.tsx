@@ -53,6 +53,16 @@ export default function Home() {
         <div
           className="max-w-screen-md flex-1 flex flex-col h-[100svh] items-center p-5 sm:p-7 gap-5 sm:gap-7 overflow-hidden">
           <div className="flex-1 w-full overflow-auto">
+            <motion.div initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 2, delay: 0.5 }}>
+              {
+                messages.length <= 0 && (
+                  <div className="w-full flex items-center justify-center font-thin text-lg text-neutral-400">
+                    Ask GPT4 any question to get started
+                  </div>
+                )
+              }
+            </motion.div>
             {
               // If loading, do not show the last message statically
               (shouldAnimateLastMessage ? messages.slice(0, messages.length - 1) : messages).map(m => {
@@ -83,10 +93,10 @@ export default function Home() {
           </div>
 
           <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 2, delay: 0.5 }}>
-            <form onSubmit={handleSubmit} className=" bg-white/5 p-1.5 text-lg rounded-full w-fit relative">
+                      transition={{ duration: 2, delay: 0.5 }} className="w-full">
+            <form onSubmit={handleSubmit} className=" bg-white/5 p-1.5 text-lg rounded-full relative w-full">
               <input
-                className="text-white sm:w-[30em] w-50 p-3 pl-5 pr-14 bg-transparent rounded-full border-[2px] border-white/5 hover:border-white/20 focus:border-blue-400 outline-0 transition-all duration-500"
+                className="text-white w-full p-3 pl-5 pr-14 bg-transparent rounded-full border-[2px] border-white/5 hover:border-white/20 focus:border-blue-400 outline-0 transition-all duration-500"
                 value={input}
                 placeholder="Ask a question..."
                 onChange={handleInputChange}
@@ -98,6 +108,14 @@ export default function Home() {
                 <AiOutlineArrowUp size={25} />
               </div>
             </form>
+            <div className="w-full flex items-center justify-center">
+              <a className="text-neutral-400 text-xs mt-2 hover:scale-110 transition-all duration-500 cursor-pointer"
+                 onClick={() => {
+                   window.open("https://reworkd.ai/", "_blank");
+                 }}>
+                Made with ❤️ by Reworkd
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
